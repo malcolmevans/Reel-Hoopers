@@ -21,3 +21,5 @@ Router.route('/notifications', {
 Router.route('/profile', {
   name: 'profile'
 });
+
+Router.route('pushForm');

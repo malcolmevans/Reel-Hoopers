@@ -25,8 +25,8 @@ ServiceConfiguration.configurations.remove({
 
  Meteor.startup(function () {
         // bootstrap the admin user if they exist -- You'll be replacing the id later
-        if (Meteor.users.findOne("EYoTyqRwaqxiG584y"))
-            Roles.addUsersToRoles("EYoTyqRwaqxiG584y", ['admin']);
+        if (Meteor.users.findOne("fXe3eyuXv55Gso3p4"))
+            Roles.addUsersToRoles("fXe3eyuXv55Gso3p4", ['admin']);
 
         /*create a couple of roles if they don't already exist (THESE ARE NOT NEEDED -- just for the demo)
         if(!Meteor.roles.findOne({name: "secret"}))

@@ -6,7 +6,7 @@
 
   {{#contentFor "headerButtonRight"}}
     <button class="button button-clear pull-right button-positive" data-action="share-product" data-product-id="{{product._id}}">
-      {{> ionIcon icon='ios-upload-outline'}}
+      {{> ionIcon icon='android-share-alt'}}
     </button>
   {{/contentFor}}
 
@@ -14,12 +14,19 @@
     <h1 class="title">Details</h1>
   {{/contentFor}}
 
+
+
+
   {{#ionView}}
     {{#ionContent}}
 
-      <div class="product-detail">
+    <div class="row">
+    <div class="col col-25"></div>
+
+      <div class="col col-50 product-detail">
 
         {{#with product}}
+
 
           {{#ionItem iconLeft=true iconRight=true class="item-text-wrap"}}
             {{> _voteButton}}
@@ -32,21 +39,31 @@
             <p>
               {{>oembed}}
             </p>
-            {{#if isAdminUser}}
-
-            {{else}}
-            {{/if}}
-              {{> quickRemoveButton collection="Products" _id=this._id class="button button-assertive"}}
               
             {{#with author}}
               <p>
                 <small>via <a href="{{pathFor 'users.show'}}" class="dark">{{profile.name}}</a></small>
               </p>
             {{/with}}
+
+
+            <!-- Go to www.addthis.com/dashboard to customize your tools -->
+            <div class="addthis_sharing_toolbox" data-title="{{title}}"></div>
+
+            <span class="share-link">             
+              <button class="button button-clear pull-right button-positive" data-action="share-product" data-product-id="{{product._id}}">
+                {{> ionIcon icon='code-working'}}
+              </button>
+            </span>
+            
             <span class="date-posted">
               {{datePosted}}
             </span>
           {{/ionItem}}
+         
+          {{#if isAdminUser}}
+              <button class="delete button button-assertive">Delete?</button>
+          {{/if}}
 
           <div class="padding product-detail-upvotes">
             <h5>Upvotes <small>{{numberOfVotes}}</small></h5>
@@ -57,8 +74,8 @@
             {{/each}}
           </div>
         {{/with}}
-
-        <div class="padding product-detail-comments">
+      </div>
+        <!--<div class="padding product-detail-comments">
           <h5>Comments</h5>
           {{#with product}}
             <button class="button button-positive button-small button-circle button-new-comment" data-ion-modal="newComment">
@@ -71,8 +88,7 @@
           {{#each comments}}
             {{> _comment}}
           {{/each}}
-        </div>
-
+        </div>-->
       </div>
 
     {{/ionContent}}

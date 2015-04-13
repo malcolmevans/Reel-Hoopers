@@ -79,7 +79,7 @@ Products.attachSchema(new SimpleSchema({
     //this.value = String(this.value),
     autoform: {
       'label-type': 'placeholder',
-      placeholder: 'Product URL'
+      placeholder: 'Video URL'
     },
     max: 200
   },
@@ -89,14 +89,16 @@ Products.attachSchema(new SimpleSchema({
       'label-type': 'placeholder',
       placeholder: 'Product Name'
     },
+    optional: true,
     max: 200
   },
   tagline: {
     type: String,
     autoform: {
       'label-type': 'placeholder',
-      placeholder: 'Tagline'
+      placeholder: 'Description'
     },
+    optional: true,
     max: 200
   },
   userId: {

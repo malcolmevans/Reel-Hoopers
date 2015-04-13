@@ -1,4 +1,4 @@
-Meteor.startup(function() {
+/*Meteor.startup(function() {
   var users = [
     {
       emails: [{
@@ -104,4 +104,4 @@ Meteor.startup(function() {
       });
     });
   }
-});
+});*/

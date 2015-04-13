@@ -1,4 +1,9 @@
 <template name="_productItem">
+     
+ <div class="row">
+  <div class="col"></div>
+  <div class="col col-50">
+
   {{#with product}}
     {{#ionItem path=../path iconLeft=true iconRight=true}}
       {{> _voteButton}}
@@ -9,10 +14,14 @@
       <p>
         {{>oembed}}
       </p>
-      <span class="comments-count">
+      <!--<span class="comments-count">
         {{numberOfComments}}
         {{> ionIcon icon="ios-chatbubble" }}
-      </span>
+      </span>-->
     {{/ionItem}}
   {{/with}}
+
+</div>
+  <div class="col"></div>
+</div>    
 </template>

@@ -1,0 +1,18 @@
+<template name="pushForm">
+      {{#contentFor "headerTitle"}}
+    <h1 class="title">Send Push Notifications</h1>
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent}}
+      <form>
+        Title:<br>
+        <input type="text" name="title">
+        <br>
+        Description:<br>
+        <input type="text" name="description">
+        <input type="submit" value="Submit">
+      </form>
+    {{/ionContent}}
+  {{/ionView}}
+</template>

@@ -23,7 +23,7 @@ Template.productsShow.helpers({
   comments: function () {
     return Comments.find({productId: Router.current().params._id}, {sort: {createdAt: -1}});
   },
-  onError: function () {
+  /*onError: function () {
     return function (error) { alert("BOO!"); console.log(error); };
   },
   onSuccess: function () {
@@ -40,11 +40,17 @@ Template.productsShow.helpers({
         this.remove();
       }
     };
-  },
+  },*/
   isAdminUser: function() {
     return Roles.userIsInRole(Meteor.user(), ['admin']);
   }  
 });
+
+  Template.productsShow.events({
+    "click .delete": function () {
+      Meteor.call("deleteTask", this._id);
+    }
+  });
 
 /*Template.productsShow.events({
   'click [data-action=new-comment]': function (event, template) {
