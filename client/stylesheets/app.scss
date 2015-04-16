@@ -9,6 +9,15 @@
 .product-title a {
   text-decoration: none;
   font-weight: bold;
+  padding-left: 5px; 
+}
+
+.taglineStyle {
+  font-size: 30px;
+}
+
+.leftPadding{
+  padding-left: 5px; 
 }
 
 .button-circle {
@@ -36,17 +45,20 @@
 }
 
 .button.vote-button {
-  width: 30px;
-  max-width: 30px;
-  min-width: 30px;
-  padding: 20px 0 0 0;
-  position: absolute;
+  width: 40px;
+  max-width: 40px;
+  min-width: 40px;
+  height: 10px !important;
+  max-height: 1px;
+  padding: 0px 0 0 0;
+  /*position: absolute;
   top: 16px;
-  left: 16px;
+  left: 5px;
+  line-height: 20px;*/
   font-size: 12px;
   border: 0;
   border-radius: $border-radius-base;
-  line-height: 20px;
+  
 
   &.has-voted {
     .icon {
@@ -56,7 +68,7 @@
 
   .icon {
     height: 20px;
-    top: 4px;
+    top: 0px;
 
     &:before {
       font-size: 20px;
@@ -64,6 +76,27 @@
     }
   }
 }
+
+.date-posted {
+  font-size: 12px;
+  width: 36px;
+  text-align: right;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  color: #999999;
+}
+
+.share-link {
+  font-size: 12px;
+  width: 36px;
+  text-align: right;
+  position: absolute;
+  bottom: 10px;
+  right: 16px;
+  color: #999999;
+}
+
 
 .comments-count {
   font-size: 12px;
@@ -88,25 +121,6 @@
   }
 }
 
-.date-posted {
-  font-size: 12px;
-  width: 36px;
-  text-align: right;
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  color: #999999;
-}
-
-.share-link {
-  font-size: 12px;
-  width: 36px;
-  text-align: right;
-  position: absolute;
-  bottom: 10px;
-  right: 16px;
-  color: #999999;
-}
 .product-detail {
   h5 {
     font-size: 11px;

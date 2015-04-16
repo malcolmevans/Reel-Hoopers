@@ -20,35 +20,38 @@
   {{#ionView}}
     {{#ionContent}}
 
-    <div class="row">
-    <div class="col col-25"></div>
+    
 
-      <div class="col col-50 product-detail">
+      <div class="product-detail">
 
         {{#with product}}
 
+        {{#ionItem class="card"}}
+        <!--{{#ionItem iconLeft=true iconRight=true class="item-text-wrap"}}-->
 
-          {{#ionItem iconLeft=true iconRight=true class="item-text-wrap"}}
-            {{> _voteButton}}
-            <h2 class="product-title">
+          <div class="item">
+            <!--<h2 class="product-title">
               <a href="{{url}}" target="_blank" class="positive">{{name}}</a>
-            </h2>
-            <p>
+            </h2>-->
+            <h2 class="taglineStyle">
               {{tagline}}
-            </p>
+            </h2>
+          </div>  
+
+          <div class="item item-image">
             <p>
               {{>oembed}}
             </p>
+          </div>
+
+          <div class="item tabs tabs-secondary tabs-icon-left">
+            <a class="tab-item">
+              {{> _voteButton}} Upvote
+            </a>
+            <a class="tab-item" href="#">
+              <i class="icon ion-share"></i>
               
-            {{#with author}}
-              <p>
-                <small>via <a href="{{pathFor 'users.show'}}" class="dark">{{profile.name}}</a></small>
-              </p>
-            {{/with}}
-
-
-            <!-- Go to www.addthis.com/dashboard to customize your tools -->
-            <div class="addthis_sharing_toolbox" data-title="{{title}}"></div>
+            <!-- Go to www.addthis.com/dashboard to customize your tools <div class="addthis_sharing_toolbox" data-title="{{title}}"></div>
 
             <span class="share-link">             
               <button class="button button-clear pull-right button-positive" data-action="share-product" data-product-id="{{product._id}}">
@@ -58,12 +61,16 @@
             
             <span class="date-posted">
               {{datePosted}}
-            </span>
-          {{/ionItem}}
-         
-          {{#if isAdminUser}}
-              <button class="delete button button-assertive">Delete?</button>
-          {{/if}}
+            </span> -->
+            </a>
+            
+            <a class="tab-item" href="#">
+              {{#with author}}
+              <small>via <a href="{{pathFor 'users.show'}}" class="dark">{{profile.name}}</a></small>
+              {{/with}}
+            </a>
+
+          </div>
 
           <div class="padding product-detail-upvotes">
             <h5>Upvotes <small>{{numberOfVotes}}</small></h5>
@@ -73,9 +80,8 @@
               </a>
             {{/each}}
           </div>
-        {{/with}}
-      </div>
-        <!--<div class="padding product-detail-comments">
+
+          <!--<div class="padding product-detail-comments">
           <h5>Comments</h5>
           {{#with product}}
             <button class="button button-positive button-small button-circle button-new-comment" data-ion-modal="newComment">
@@ -89,7 +95,17 @@
             {{> _comment}}
           {{/each}}
         </div>-->
+           
+          {{#if isAdminUser}}
+              <button class="delete button button-assertive">Delete?</button>
+          {{/if}}
+
+        {{/ionItem}}
+         
+          
+        {{/with}}
       </div>
+
 
     {{/ionContent}}
   {{/ionView}}

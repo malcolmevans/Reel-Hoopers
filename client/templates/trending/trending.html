@@ -1,18 +1,13 @@
 <template name="trending">
 
-  <header class="bar bar-header bar-positive">
-    <div class="buttons">
-      <button class="button button-clear pull-left button-light" data-ion-modal="search">
+  {{#contentFor "headerButtonLeft"}}
+    <button class="button button-clear pull-left button-light" data-ion-modal="search">
       {{> ionIcon icon='ios-search'}}
     </button>
-    </div>
-    <h1 class="title">Trending</h1>
-    <div class="buttons">
-    
+  {{/contentFor}}
+
+  {{#contentFor "headerButtonRight"}}
       {{#if currentUser}}
-      <!--<button class="button button-clear pull-right button-light" data-ion-modal="newProduct">
-        {{> ionIcon icon='ios-plus-empty'}}
-        </button>-->
 
       {{else}}
         <button class="button button-clear pull-right button-light" data-ion-modal="signIn">
@@ -20,27 +15,22 @@
         </button> 
       {{/if}}
 
-      {{> loginButtons align="right"}}
-      <button class="button button-clear pull-right button-light" data-ion-modal="newProduct">
-        {{> ionIcon icon='ios-plus-empty'}}
-        </button> 
       
       {{#if isAdminUser}}
         {{> loginButtons align="right"}}
         <button class="button button-clear pull-right button-light" data-ion-modal="newProduct">
         {{> ionIcon icon='ios-plus-empty'}}
         </button> 
-        <button class="button button-clear pull-right button-light" data-ion-modal="pushForm">
-        {{> ionIcon icon='ios-plus'}}
-        </button>
       {{/if}}  
-    </div>
-  </header>
+  {{/contentFor}}
+
+  {{#contentFor "headerTitle"}}
+    <h1 class="title"><a href="{{pathFor 'trending'}}">Trending</a></h1>
+  {{/contentFor}}
 
 
   {{#ionView}}
     {{#ionContent}}
-    {{> pushForm}}
       {{#ionList}}
         {{#each products}}
           {{> _productItem product=this path="products.show"}}

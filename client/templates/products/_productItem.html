@@ -1,27 +1,56 @@
 <template name="_productItem">
-     
- <div class="row">
-  <div class="col"></div>
-  <div class="col col-50">
 
-  {{#with product}}
-    {{#ionItem path=../path iconLeft=true iconRight=true}}
-      {{> _voteButton}}
-      <h2>{{name}}</h2>
-      <p>
-        {{tagline}}
-      </p>
-      <p>
-        {{>oembed}}
-      </p>
-      <!--<span class="comments-count">
-        {{numberOfComments}}
-        {{> ionIcon icon="ios-chatbubble" }}
-      </span>-->
-    {{/ionItem}}
-  {{/with}}
 
-</div>
-  <div class="col"></div>
-</div>    
+
+{{#with product}}
+    {{#ionItem path=../path class="card"}}
+  
+        <!--{{#ionItem iconLeft=true iconRight=true class="item-text-wrap"}}-->
+
+          <div class="item">
+            <!--<h2 class="product-title">
+              <a href="{{url}}" target="_blank" class="positive">{{name}}</a>
+            </h2>-->
+            <h2 class="taglineStyle">
+              {{tagline}}
+            </h2>
+          </div>  
+
+          <div class="item item-image">
+            <p>
+              {{>oembed}}
+            </p>
+          </div>
+
+          <div class="item tabs tabs-secondary tabs-icon-left">
+            <a class="tab-item">
+              {{> _voteButton}} Upvote
+            </a>
+            <a class="tab-item" href="#">
+              <i class="icon ion-share"></i>
+              
+            <!-- Go to www.addthis.com/dashboard to customize your tools <div class="addthis_sharing_toolbox" data-title="{{title}}"></div>
+
+            <span class="share-link">             
+              <button class="button button-clear pull-right button-positive" data-action="share-product" data-product-id="{{product._id}}">
+                {{> ionIcon icon='code-working'}}
+              </button>
+            </span>
+            
+            <span class="date-posted">
+              {{datePosted}}
+            </span> -->
+            </a>
+            
+            <a class="tab-item" href="#">
+              {{#with author}}
+              <small>via <a href="{{pathFor 'users.show'}}" class="dark">{{profile.name}}</a></small>
+              {{/with}}
+            </a>
+
+          </div>
+
+    {{/ionItem}}          
+{{/with}}
+   
 </template>

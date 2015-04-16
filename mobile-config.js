@@ -38,6 +38,8 @@ App.launchScreens({
   'android_xhdpi_portrait': 'resources/splash/android_xhdpi_portrait.png',
   'android_xhdpi_landscape': 'resources/splash/android_xhdpi_landscape.png'
 });
-
 App.setPreference('StatusBarOverlaysWebView', true);
 App.setPreference('StatusBarStyle', 'default');
+
+// Set up external locations the app needs access to.
+App.accessRule("*", {external: false});
