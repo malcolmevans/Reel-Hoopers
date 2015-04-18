@@ -1,33 +1,12 @@
 <template name="trending">
+{{#if currentUser}}
 
-  {{#contentFor "headerButtonLeft"}}
-    <button class="button button-clear pull-left button-light" data-ion-modal="search">
-      {{> ionIcon icon='ios-search'}}
-    </button>
-  {{/contentFor}}
-
-  {{#contentFor "headerButtonRight"}}
-      {{#if currentUser}}
-
-      {{else}}
-        <button class="button button-clear pull-right button-light" data-ion-modal="signIn">
-          {{> ionIcon icon='ios-plus-empty'}}
-        </button> 
-      {{/if}}
-
-      
-      {{#if isAdminUser}}
-        {{> loginButtons align="right"}}
-        <button class="button button-clear pull-right button-light" data-ion-modal="newProduct">
-        {{> ionIcon icon='ios-plus-empty'}}
-        </button> 
-      {{/if}}  
-  {{/contentFor}}
+  {{> headerNavBar}}
 
   {{#contentFor "headerTitle"}}
-    <h1 class="title"><a href="{{pathFor 'trending'}}">Trending</a></h1>
+    <!--<h1 class="title"><a href="{{pathFor 'trending'}}">Trending</a></h1>-->
+    <h1 class="title">Trending</h1>
   {{/contentFor}}
-
 
   {{#ionView}}
     {{#ionContent}}
@@ -38,5 +17,8 @@
       {{/ionList}}
     {{/ionContent}}
   {{/ionView}}
+
+
+{{/if}}
 
 </template>

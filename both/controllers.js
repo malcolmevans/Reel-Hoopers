@@ -2,14 +2,26 @@ AppController = RouteController.extend({
   layoutTemplate: 'appLayout'
 });
 
-TrendingController = AppController.extend({});
+TrendingController = AppController.extend({
+	layoutTemplate: 'appLayout'
+});
+	
+RecentController = AppController.extend({
+	layoutTemplate: 'appLayout'
+});
 
-RecentController = AppController.extend({});
+ProductsShowController = AppController.extend({
+	layoutTemplate: 'appLayout'
+});
 
-ProductsShowController = AppController.extend({});
+UsersShowController = AppController.extend({
+	layoutTemplate: 'appLayout'
+});
 
-UsersShowController = AppController.extend({});
+NotificationsController = AppController.extend({
+	layoutTemplate: 'appLayout'
+});
 
-NotificationsController = AppController.extend({});
-
-ProfileController = AppController.extend({});
+ProfileController = AppController.extend({
+	layoutTemplate: 'appLayout'
+});

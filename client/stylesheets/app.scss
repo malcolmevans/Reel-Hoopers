@@ -12,6 +12,11 @@
   padding-left: 5px; 
 }
 
+.col {
+  padding: 0px !important;
+  margin-top: -10px !important;
+}
+
 .taglineStyle {
   font-size: 30px;
 }
@@ -30,6 +35,7 @@
   text-transform: uppercase;
   font-size: 12px;
   letter-spacing: 1px;
+  text-decoration: none !important;
 }
 
 .empty-view {
@@ -217,4 +223,8 @@ a.comment-item-author {
     display: inline-block;
     vertical-align: middle;
   }
+}
+
+.sideMenuItems{
+  text-decoration: none !important;
 }

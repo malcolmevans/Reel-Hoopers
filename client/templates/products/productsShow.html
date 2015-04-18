@@ -1,112 +1,104 @@
 <template name="productsShow">
 
   {{#contentFor "headerButtonLeft"}}
-    {{>ionNavBackButton class="button-positive" text=false}}
+    {{>ionNavBackButton class="button-positive-light" text=false}}
   {{/contentFor}}
 
-  {{#contentFor "headerButtonRight"}}
-    <button class="button button-clear pull-right button-positive" data-action="share-product" data-product-id="{{product._id}}">
+  <!--{{#contentFor "headerButtonRight"}}
+    <button class="button button-clear pull-right button-positive-light" data-action="share-product" data-product-id="{{product._id}}">
       {{> ionIcon icon='android-share-alt'}}
     </button>
-  {{/contentFor}}
+  {{/contentFor}}-->
 
   {{#contentFor "headerTitle"}}
     <h1 class="title">Details</h1>
   {{/contentFor}}
 
 
+{{#ionView}}
+  {{#ionContent}}   
 
+  <div class="product-detail">
 
-  {{#ionView}}
-    {{#ionContent}}
+    {{#if isDesktop}}
+      <div class="row">
+        <div class="col col-20"></div>
+          <div class="col col-60">
+              {{#with product}}
 
-    
+                {{#ionItem class="card"}}
+                <!--{{#ionItem iconLeft=true iconRight=true class="item-text-wrap"}}-->
+                  {{> productsDetail}}
+                  {{#if isAdminUser}}
+                    <button class="delete button button-assertive">Delete?</button>
+                  {{/if}}
 
-      <div class="product-detail">
+                {{/ionItem}}
+                  
+              {{/with}}
+          </div>
+        <div class="col col-20"></div>
+      </div>   
 
-        {{#with product}}
+    {{else}}
+
+      {{#with product}}
 
         {{#ionItem class="card"}}
-        <!--{{#ionItem iconLeft=true iconRight=true class="item-text-wrap"}}-->
+          <!--{{#ionItem iconLeft=true iconRight=true class="item-text-wrap"}}-->
 
-          <div class="item">
-            <!--<h2 class="product-title">
-              <a href="{{url}}" target="_blank" class="positive">{{name}}</a>
-            </h2>-->
-            <h2 class="taglineStyle">
-              {{tagline}}
-            </h2>
-          </div>  
-
-          <div class="item item-image">
-            <p>
-              {{>oembed}}
-            </p>
-          </div>
-
-          <div class="item tabs tabs-secondary tabs-icon-left">
-            <a class="tab-item">
-              {{> _voteButton}} Upvote
-            </a>
-            <a class="tab-item" href="#">
-              <i class="icon ion-share"></i>
-              
-            <!-- Go to www.addthis.com/dashboard to customize your tools <div class="addthis_sharing_toolbox" data-title="{{title}}"></div>
-
-            <span class="share-link">             
-              <button class="button button-clear pull-right button-positive" data-action="share-product" data-product-id="{{product._id}}">
-                {{> ionIcon icon='code-working'}}
-              </button>
-            </span>
-            
-            <span class="date-posted">
-              {{datePosted}}
-            </span> -->
-            </a>
-            
-            <a class="tab-item" href="#">
-              {{#with author}}
-              <small>via <a href="{{pathFor 'users.show'}}" class="dark">{{profile.name}}</a></small>
-              {{/with}}
-            </a>
-
-          </div>
-
-          <div class="padding product-detail-upvotes">
-            <h5>Upvotes <small>{{numberOfVotes}}</small></h5>
-            {{#each voters}}
-              <a href="{{pathFor 'users.show'}}">
-                {{> avatar user=this size="small" shape="circle"}}
-              </a>
-            {{/each}}
-          </div>
-
-          <!--<div class="padding product-detail-comments">
-          <h5>Comments</h5>
-          {{#with product}}
-            <button class="button button-positive button-small button-circle button-new-comment" data-ion-modal="newComment">
-              {{>ionIcon icon="plus"}}
-            </button>
-          {{/with}}
-        </div>
-
-        <div class="list">
-          {{#each comments}}
-            {{> _comment}}
-          {{/each}}
-        </div>-->
-           
-          {{#if isAdminUser}}
+            {{> productsDetail}}
+            {{#if isAdminUser}}
               <button class="delete button button-assertive">Delete?</button>
-          {{/if}}
+            {{/if}}
 
         {{/ionItem}}
-         
           
-        {{/with}}
-      </div>
+      {{/with}}
+
+    {{/if}}
+  </div>
 
 
-    {{/ionContent}}
-  {{/ionView}}
+  {{/ionContent}}
+{{/ionView}}
 </template>
+
+
+<template name="productsDetail">
+  <div class="item">
+    <h2 class="taglineStyle">
+      {{tagline}}
+    </h2>
+  </div>  
+
+  <div class="item item-image">
+    <p>
+      {{>oembed}}
+    </p>
+  </div>
+
+  <div class="item tabs tabs-secondary tabs-icon-left">
+    <a class="tab-item">
+      {{> _voteButton}} Upvote
+    </a>
+    <a class="tab-item" href="#">
+      <i class="icon ion-share"></i>
+    </a>       
+    <a class="tab-item" href="#">
+      {{#with author}}
+      <small>via <a href="{{pathFor 'users.show'}}" class="dark">{{profile.name}}</a></small>
+      {{/with}}
+    </a>
+  </div>
+
+  <div class="padding product-detail-upvotes">
+    <h5>Upvotes <small>{{numberOfVotes}}</small></h5>
+    {{#each voters}}
+      <a href="{{pathFor 'users.show'}}">
+        {{> avatar user=this size="small" shape="circle"}}
+      </a>
+    {{/each}}
+  </div>
+</template>
+

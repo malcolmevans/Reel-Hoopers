@@ -67,6 +67,7 @@ momentjs:moment@2.10.2
 mongo@1.1.0
 mongo-livedata@1.0.8
 mrt:underscore-string-latest@2.3.3
+mystor:device-detection@0.2.0
 npm-bcrypt@0.7.8_2
 oauth@1.1.4
 oauth2@1.1.3

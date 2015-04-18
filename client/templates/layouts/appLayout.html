@@ -1,28 +1,104 @@
 <template name="appLayout">
+{{#ionBody}}
 
-  {{#ionBody}}
-    
-    {{> ionNavBar class="bar bar-header bar-positive"}}
+  {{#ionSideMenuContainer}}
 
-    {{#ionNavView}}
-      {{> yield}}
-    {{/ionNavView}}
+      {{#ionSideMenus}}
 
-    {{#if isAndroid}}
-      {{#ionTabs style="android"}}
-        {{> ionTab title="Trending" path="trending" icon="android-star"}}
-        {{> ionTab title="Recent" path="recent" icon="android-time"}}
-        {{> ionTab title="Notifications" path="notifications" icon="android-notifications"}}
-        {{> ionTab title="Profile" path="profile" icon="android-happy"}}
-      {{/ionTabs}}
-    {{else}}
-      {{#ionTabs style="ios"}}
-        {{> ionTab title="Trending" path="trending" iconOff="ios-bolt-outline" iconOn="ios-bolt" class="tab-item-positive"}}
-        {{> ionTab title="Recent" path="recent" iconOff="ios-clock-outline" iconOn="ios-clock" class="tab-item-positive"}}
-        {{> ionTab title="Notifications" path="notifications" iconOff="ios-bell-outline" iconOn="ios-bell" class="tab-item-positive"}}
-        {{> ionTab title="Profile" path="profile" iconOff="ios-person-outline" iconOn="ios-person" class="tab-item-positive"}}
-      {{/ionTabs}}
-    {{/if}}
-  {{/ionBody}}
 
+        {{#ionSideMenu}}
+          <div class="bar bar-header bar-dark">
+            <h1 class="title">Menu</h1>
+          </div>
+          <div class="content has-header">
+            <div class="list">
+              {{#if isAdminUser}}
+              <div class="item item-icon-right" data-ion-menu-close>
+                  <a class="sideMenuItems" data-ion-modal="newProduct">New Video</a>
+              </div>
+              {{/if}}
+              <div class="item item-icon-right" data-ion-menu-close>
+                <a class="sideMenuItems" href="{{ pathFor 'trending'}}">Trending</a>
+              </div>
+              <div class="item item-icon-right" data-ion-menu-close>
+                <a class="sideMenuItems" href="{{ pathFor 'recent'}}">Recent</a>
+              </div>
+              <div class="item item-icon-right" data-ion-menu-close>
+                <a class="sideMenuItems" href="{{ pathFor 'notifications'}}">Notifications</a>
+              </div>
+              <div class="item item-icon-right" data-ion-menu-close>
+                <a class="sideMenuItems" href="{{ pathFor 'profile'}}">Profile</a>
+              </div>
+            </div>
+          </div>
+        {{/ionSideMenu}}
+
+        <!--{{#ionSideMenu side="right"}}
+          <div class="bar bar-header bar-dark">
+            <h1 class="title">Right Menu</h1>
+          </div>
+          <div class="content has-header">
+            <div class="list">
+              <div class="item item-icon-left" data-ion-menu-close>
+                {{> ionIcon icon="ios-arrow-left"}} Close Me
+              </div>
+            </div>
+          </div>
+        {{/ionSideMenu}}-->
+      {{/ionSideMenus}}
+
+    {{#ionSideMenuContent}}
+
+      
+        {{> ionNavBar class="bar-positive"}}
+      
+        {{#ionNavView}}
+          {{> yield}}
+        {{/ionNavView}}
+
+
+        {{#if isAndroid}}
+          {{else}}
+            {{#ionTabs style="ios"}}
+              {{> ionTab title="Trending" path="trending" iconOff="ios-bolt-outline" iconOn="ios-bolt" class="tab-item-positive"}}
+              {{> ionTab title="Recent" path="recent" iconOff="ios-clock-outline" iconOn="ios-clock" class="tab-item-positive"}}
+              {{> ionTab title="Notifications" path="notifications" iconOff="ios-bell-outline" iconOn="ios-bell" class="tab-item-positive"}}
+              {{> ionTab title="Profile" path="profile" iconOff="ios-person-outline" iconOn="ios-person" class="tab-item-positive"}}
+            {{/ionTabs}}
+        {{/if}}
+
+
+    {{/ionSideMenuContent}}
+
+  {{/ionSideMenuContainer}}
+
+{{/ionBody}}
+
+
+
+
+
+</template>
+
+<template name="headerNavBar">
+    {{#contentFor "headerButtonLeft"}}
+      {{#if isAndroid}}
+       <button class="button button-clear pull-left" data-ion-menu-toggle="left">
+        {{> ionIcon icon='navicon'}}
+       </button> 
+      {{/if}}
+      {{#if currentUser}}
+          <button class="button button-clear pull-left button-light" data-ion-modal="signIn">
+            {{> ionIcon icon='ios-plus-empty'}}
+          </button>
+          <!--<a href="{{ pathFor 'trending'}}" class="button button-clear pull-left">{{> ionIcon icon='home'}}</a>-->
+      {{/if}}
+    {{/contentFor}}
+   
+  
+    {{#contentFor "headerButtonRight"}}
+      <button class="button button-clear pull-right button-light" data-ion-modal="search">
+        {{> ionIcon icon='ios-search'}}
+      </button>  
+    {{/contentFor}}
 </template>

@@ -1,56 +1,68 @@
 <template name="_productItem">
 
+{{#if isDesktop}}
+<div class="row">
+  <div class="col col-20"></div>
+    <div class="col col-60">
+
+      {{#with product}}
+        {{#ionItem path=../path class="card"}}
+          {{> productsClick}}
+        {{/ionItem}}          
+      {{/with}}
+      
+    </div>
+  <div class="col col-20"></div>
+</div>    
 
 
-{{#with product}}
-    {{#ionItem path=../path class="card"}}
-  
-        <!--{{#ionItem iconLeft=true iconRight=true class="item-text-wrap"}}-->
+{{else}}
 
-          <div class="item">
-            <!--<h2 class="product-title">
-              <a href="{{url}}" target="_blank" class="positive">{{name}}</a>
-            </h2>-->
-            <h2 class="taglineStyle">
-              {{tagline}}
-            </h2>
-          </div>  
+      {{#with product}}
+        {{#ionItem path=../path class="card"}}
+          {{> productsClick}}
+        {{/ionItem}}          
+      {{/with}}
 
-          <div class="item item-image">
-            <p>
-              {{>oembed}}
-            </p>
-          </div>
+{{/if}}     
+</template>
 
-          <div class="item tabs tabs-secondary tabs-icon-left">
-            <a class="tab-item">
-              {{> _voteButton}} Upvote
-            </a>
-            <a class="tab-item" href="#">
-              <i class="icon ion-share"></i>
-              
-            <!-- Go to www.addthis.com/dashboard to customize your tools <div class="addthis_sharing_toolbox" data-title="{{title}}"></div>
+<template name="productsClick">
+  <div class="item">
+    <!--<h2 class="product-title">
+      <a href="{{url}}" target="_blank" class="positive">{{name}}</a>
+    </h2>-->
+    <h2 class="taglineStyle">
+      {{tagline}}
+    </h2>
+  </div>  
 
-            <span class="share-link">             
-              <button class="button button-clear pull-right button-positive" data-action="share-product" data-product-id="{{product._id}}">
-                {{> ionIcon icon='code-working'}}
-              </button>
-            </span>
-            
-            <span class="date-posted">
-              {{datePosted}}
-            </span> -->
-            </a>
-            
-            <a class="tab-item" href="#">
-              {{#with author}}
-              <small>via <a href="{{pathFor 'users.show'}}" class="dark">{{profile.name}}</a></small>
-              {{/with}}
-            </a>
+  <div class="item item-image">
+    <p>
+      {{>oembed}}
+    </p>
+  </div>
 
-          </div>
-
-    {{/ionItem}}          
-{{/with}}
-   
+  <div class="item tabs tabs-secondary tabs-icon-left">
+    <a class="tab-item">
+      {{> _voteButton}} Upvote
+    </a>
+    <a class="tab-item" href="#">
+      <i class="icon ion-share"></i>
+        <!-- Go to www.addthis.com/dashboard to customize your tools <div class="addthis_sharing_toolbox" data-title="{{title}}"></div>
+        <span class="share-link">             
+          <button class="button button-clear pull-right button-positive" data-action="share-product" data-product-id="{{product._id}}">
+            {{> ionIcon icon='code-working'}}
+          </button>
+        </span>
+        <span class="date-posted">
+          {{datePosted}}
+        </span> -->
+    </a>
+    <a class="tab-item" href="#">
+      {{#with author}}
+      <small>via <a href="{{pathFor 'users.show'}}" class="dark">{{profile.name}}</a></small>
+      {{/with}}
+    </a>
+  </div>
 </template>
