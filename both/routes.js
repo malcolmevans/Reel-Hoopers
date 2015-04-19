@@ -24,7 +24,7 @@ Router.route('/profile', {
 
 Router.route('pushForm', {
   onBeforeAction: function () {
-    if (!Meteor.user('fXe3eyuXv55Gso3p4')) {
+    if (!Meteor.user(Meteor.settings.adminUser)) {
       // render the login template but keep the url in the browser the same
       Router.go('trending');
     } else {

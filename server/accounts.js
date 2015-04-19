@@ -18,15 +18,15 @@ ServiceConfiguration.configurations.remove({
   });
   ServiceConfiguration.configurations.insert({
     service: "instagram",
-    clientId: "a6d5f80392a440b680fd743343fd6723",
+    clientId: Meteor.settings.IgClientId,
     scope:'basic',
-    secret: "2b1976f206484071ba42572fa4ca1431"
+    secret: Meteor.settings.IgSecret
   });
 
  Meteor.startup(function () {
         // bootstrap the admin user if they exist -- You'll be replacing the id later
-        if (Meteor.users.findOne("fXe3eyuXv55Gso3p4"))
-            Roles.addUsersToRoles("fXe3eyuXv55Gso3p4", ['admin']);
+        if (Meteor.users.findOne(Meteor.settings.adminUser))
+            Roles.addUsersToRoles(Meteor.settings.adminUser, ['admin']);
 
         /*create a couple of roles if they don't already exist (THESE ARE NOT NEEDED -- just for the demo)
         if(!Meteor.roles.findOne({name: "secret"}))
