@@ -5,10 +5,18 @@ Template.pushForm.events({
     var title = template.$('input[name=title]').val();
     var description = template.$('input[name=description]').val();
     Push.send({
-      from: 'Reel Hooper Product Hunt',
+      from: 'Reel Hoopers',
       title: title,
       text: description,
       query: {}
     });
+
+    //if (Meteor.users.findOne("EYoTyqRwaqxiG5asdsa84y")){
+        //sAlert.warning('Your message', configOverwrite);
+    // }
+    
+    e.target.notificationTitle.value = '';
+    e.target.notificationDescription.value = '';
+
   }
 });

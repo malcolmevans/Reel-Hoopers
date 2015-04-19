@@ -15,4 +15,5 @@ Meteor.methods({
     var task = Products.findOne(_id);
     Products.remove(_id);
   }
+  //,sAlert.warning('Your message', configOverwrite);
 });

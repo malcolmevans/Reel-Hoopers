@@ -25,3 +25,4 @@ NotificationsController = AppController.extend({
 ProfileController = AppController.extend({
 	layoutTemplate: 'appLayout'
 });
+

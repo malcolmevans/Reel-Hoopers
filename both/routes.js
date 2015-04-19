@@ -22,4 +22,13 @@ Router.route('/profile', {
   name: 'profile'
 });
 
-Router.route('pushForm');
+Router.route('pushForm', {
+  onBeforeAction: function () {
+    if (!Meteor.user('fXe3eyuXv55Gso3p4')) {
+      // render the login template but keep the url in the browser the same
+      Router.go('trending');
+    } else {
+	  this.next();
+	}
+  }
+});

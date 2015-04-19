@@ -6,7 +6,7 @@ Products.allow({
     return userId === doc.userId;
   },
   'remove': function(userId, doc) {
-    if (Meteor.users.findOne("EYoTyqRwaqxiG584y")){
+    if (Meteor.users.findOne("fXe3eyuXv55Gso3p4")){
     return true;
   }
   }
@@ -27,6 +27,8 @@ Comments.allow({
 Push.debug = true;
 Push.allow({
     send: function(userId, notification) {
+      if (Meteor.users.findOne("fXe3eyuXv55Gso3p4")){
         return true; // Allow all users to send
-    }
+     }
+  }
 });

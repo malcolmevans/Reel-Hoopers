@@ -7,8 +7,10 @@ Meteor.startup(function(){
       Meteor.call("raix:push-setuser", token, function(err, res) {});
     }
   });
-  Push.addListener('message', function(message) {
-    alert( "Message Recieved" );
+  // for more info look at  https://github.com/raix/push/blob/master/docs/ADVANCED.md 
+  Push.addListener('message', function(m){
+    console.log( m.message );
+    alert( m.message );
   });
   Push.id();
 }); 

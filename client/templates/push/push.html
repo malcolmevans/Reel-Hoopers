@@ -1,18 +1,25 @@
 <template name="pushForm">
-      {{#contentFor "headerTitle"}}
+  
+  {{> headerNavBar}}
+  
+  {{#contentFor "headerTitle"}}
     <h1 class="title">Send Push Notifications</h1>
   {{/contentFor}}
 
   {{#ionView}}
     {{#ionContent}}
+     <div class="list"> 
       <form>
-        Title:<br>
-        <input type="text" name="title">
+        <label class="item item-input">
+          <input type="text" id="notificationTitle" class="form-control" name="title" placeholder="Title">
+        </label>  
+        <label class="item item-input">
+          <input type="text" id="notificationDescription" class="form-control" placeholder="Description" name="description">
+        </label>  
         <br>
-        Description:<br>
-        <input type="text" name="description">
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" class="button button-positive">
       </form>
+    </div>  
     {{/ionContent}}
   {{/ionView}}
 </template>
