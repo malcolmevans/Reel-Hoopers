@@ -72,7 +72,7 @@
     </h2>
   </div>  
 
-  <div class="item item-image">
+  <div class="item item-image no-padding">
     <p>
       {{>oembed}}
     </p>
@@ -82,9 +82,8 @@
     <a class="tab-item">
       {{> _voteButton}} Upvote
     </a>
-    <a class="tab-item" href="#">
-      <i class="icon ion-share"></i>
-    </a>       
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <div class="addthis_sharing_toolbox" data-title="{{tagline}}"></div>     
     <a class="tab-item" href="#">
       {{#with author}}
       <small>via <a href="{{pathFor 'users.show'}}" class="dark">{{profile.name}}</a></small>

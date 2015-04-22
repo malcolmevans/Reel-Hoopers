@@ -7,8 +7,8 @@
 
 
         {{#ionSideMenu}}
-          <div class="bar bar-header bar-dark">
-            <h1 class="title">Menu</h1>
+          <div class="menu-header">
+            <h1 class="" style="color: #fff;">Menu</h1>
           </div>
           <div class="content has-header">
             <div class="list">
@@ -23,9 +23,9 @@
               <div class="item item-icon-right" data-ion-menu-close>
                 <a class="sideMenuItems" href="{{ pathFor 'recent'}}">Recent</a>
               </div>
-              <div class="item item-icon-right" data-ion-menu-close>
+              <!--<div class="item item-icon-right" data-ion-menu-close>
                 <a class="sideMenuItems" href="{{ pathFor 'notifications'}}">Notifications</a>
-              </div>
+              </div>-->
               <div class="item item-icon-right" data-ion-menu-close>
                 <a class="sideMenuItems" href="{{ pathFor 'profile'}}">Profile</a>
               </div>
@@ -33,39 +33,30 @@
           </div>
         {{/ionSideMenu}}
 
-        <!--{{#ionSideMenu side="right"}}
-          <div class="bar bar-header bar-dark">
-            <h1 class="title">Right Menu</h1>
-          </div>
-          <div class="content has-header">
-            <div class="list">
-              <div class="item item-icon-left" data-ion-menu-close>
-                {{> ionIcon icon="ios-arrow-left"}} Close Me
-              </div>
-            </div>
-          </div>
-        {{/ionSideMenu}}-->
       {{/ionSideMenus}}
 
     {{#ionSideMenuContent}}
 
-      
+      {{#if currentUser}}
         {{> ionNavBar class="bar-positive"}}
-      
+      {{/if}}
+        
+
         {{#ionNavView}}
           {{> yield}}
         {{/ionNavView}}
 
 
-        {{#if isAndroid}}
-          {{else}}
-            {{#ionTabs style="ios"}}
-              {{> ionTab title="Trending" path="trending" iconOff="ios-bolt-outline" iconOn="ios-bolt" class="tab-item-positive"}}
-              {{> ionTab title="Recent" path="recent" iconOff="ios-clock-outline" iconOn="ios-clock" class="tab-item-positive"}}
-              {{> ionTab title="Notifications" path="notifications" iconOff="ios-bell-outline" iconOn="ios-bell" class="tab-item-positive"}}
-              {{> ionTab title="Profile" path="profile" iconOff="ios-person-outline" iconOn="ios-person" class="tab-item-positive"}}
-            {{/ionTabs}}
-        {{/if}}
+      {{#if isAndroid}}
+
+        {{else}}
+          {{#ionTabs style="ios"}}
+            {{> ionTab title="Trending" path="trending" iconOff="ios-bolt-outline" iconOn="ios-bolt" class="tab-item-positive"}}
+            {{> ionTab title="Recent" path="recent" iconOff="ios-clock-outline" iconOn="ios-clock" class="tab-item-positive"}}
+            <!--{{> ionTab title="Notifications" path="notifications" iconOff="ios-bell-outline" iconOn="ios-bell" class="tab-item-positive"}}-->
+            {{> ionTab title="Profile" path="profile" iconOff="ios-person-outline" iconOn="ios-person" class="tab-item-positive"}}
+          {{/ionTabs}}
+      {{/if}}
 
 
     {{/ionSideMenuContent}}
@@ -82,23 +73,35 @@
 
 <template name="headerNavBar">
     {{#contentFor "headerButtonLeft"}}
-      {{#if isAndroid}}
-       <button class="button button-clear pull-left" data-ion-menu-toggle="left">
-        {{> ionIcon icon='navicon'}}
-       </button> 
-      {{/if}}
+
       {{#if currentUser}}
-          <button class="button button-clear pull-left button-light" data-ion-modal="signIn">
-            {{> ionIcon icon='ios-plus-empty'}}
-          </button>
-          <!--<a href="{{ pathFor 'trending'}}" class="button button-clear pull-left">{{> ionIcon icon='home'}}</a>-->
+          {{#if isAndroid}}
+            <button class="button button-clear pull-left" id="sideMenu" data-ion-menu-toggle="left">
+              {{> ionIcon icon='navicon'}}
+            </button> 
+          {{else}}
+            <button class="button button-clear pull-left button-light" data-ion-modal="newProduct">
+                {{> ionIcon icon='ios-plus-empty'}}
+            </button>
+          {{/if}}
+      {{else}} 
+        <button class="button button-clear pull-left button-light" data-ion-modal="signIn">
+          {{> ionIcon icon='ios-plus-empty'}}
+        </button>
       {{/if}}
     {{/contentFor}}
    
   
     {{#contentFor "headerButtonRight"}}
-      <button class="button button-clear pull-right button-light" data-ion-modal="search">
+      {{#if currentUser}}
+        <button class="button button-clear pull-right button-light" data-ion-modal="search">
         {{> ionIcon icon='ios-search'}}
-      </button>  
+        </button>
+      {{else}} 
+        <button class="button button-clear pull-right button-light" data-ion-modal="signIn">
+        Sign In
+        </button>
+      {{/if}} 
+
     {{/contentFor}}
 </template>

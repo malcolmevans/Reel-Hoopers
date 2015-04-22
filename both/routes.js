@@ -3,7 +3,16 @@ Router.route('/', {
 });
 
 Router.route('/recent', {
-  name: 'recent'
+  name: 'recent',
+
+  onBeforeAction: function () {
+    if (!Meteor.user()) {
+      // render the login template but keep the url in the browser the same
+      Router.go('trending');
+    } else {
+    this.next();
+  }
+  }
 });
 
 Router.route('/products/:_id', {
@@ -15,11 +24,29 @@ Router.route('/users/:_id', {
 });
 
 Router.route('/notifications', {
-  name: 'notifications'
+  name: 'notifications',
+
+  onBeforeAction: function () {
+    if (!Meteor.user()) {
+      // render the login template but keep the url in the browser the same
+      Router.go('trending');
+    } else {
+    this.next();
+  }
+  }
 });
 
 Router.route('/profile', {
-  name: 'profile'
+  name: 'profile',
+
+  onBeforeAction: function () {
+    if (!Meteor.user()) {
+      // render the login template but keep the url in the browser the same
+      Router.go('trending');
+    } else {
+    this.next();
+  }
+  }  
 });
 
 Router.route('pushForm', {

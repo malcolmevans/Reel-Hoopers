@@ -1,8 +1,8 @@
 App.info({
-  name: 'MeteorHunt',
-  description: 'Submit and vote on products made with Meteor',
-  author: 'Nick Wientge',
-  website: 'http://exygen.io',
+  name: 'Reel Hoopers',
+  description: 'Watch and vote on the best basketball videos from around the world',
+  author: 'Malcolm Evans',
+  website: 'http://www.ReelHoopers.com',
   version: '0.0.1'
 });
 

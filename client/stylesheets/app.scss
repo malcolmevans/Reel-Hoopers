@@ -12,6 +12,9 @@
   padding-left: 5px; 
 }
 
+#sideMenu{
+  padding-right: 20px !important;
+}
 .col {
   padding: 0px !important;
   margin-top: -10px !important;
@@ -19,6 +22,7 @@
 
 .taglineStyle {
   font-size: 30px;
+  padding: 2px !important
 }
 
 .leftPadding{
@@ -81,6 +85,14 @@
       line-height: 20px;
     }
   }
+}
+
+.item {
+  padding: 5px !important;
+}
+
+.card{
+  margin: 5px 1px !important;
 }
 
 .date-posted {
@@ -160,6 +172,12 @@
 
 .sign-in-button img {
   margin-top: 6px;
+}
+
+.menu-header {
+  background: #27272B url("/images/nodes.png") center center no-repeat;
+  background-size: cover;
+  text-align: center;
 }
 
 .profile-header {

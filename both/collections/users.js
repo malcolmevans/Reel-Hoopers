@@ -9,8 +9,5 @@ Meteor.users.helpers({
     if( this.profile && this.profile.votedProductIds ){
       return Products.find({_id: {$in: this.profile.votedProductIds}});
     }
-  },
-  authorProducts: function () {
-    return Products.find();
   }
 });

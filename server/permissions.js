@@ -28,7 +28,7 @@ Push.debug = true;
 Push.allow({
     send: function(userId, notification) {
       if (Meteor.users.findOne(Meteor.settings.adminUser)){
-        return true; // Allow all users to send
+        return true;
      }
   }
 });

@@ -1,9 +1,5 @@
 <template name="profile">
-  {{#if currentUser}}
 
-    {{#contentFor "headerButtonLeft"}}
-      {{>ionNavBackButton class="button-positive-light" text=false}}
-    {{/contentFor}}
 
     {{> headerNavBar}}
   
@@ -12,8 +8,6 @@
         {{> ionIcon icon='ios-gear-outline'}}
       </button>
     {{/contentFor}}
-
-  {{/if}}
 
   {{#contentFor "headerTitle"}}
     <h1 class="title">Profile</h1>

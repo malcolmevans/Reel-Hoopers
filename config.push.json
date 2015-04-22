@@ -1,7 +1,7 @@
 {
   "gcm": {
-    "apiKey": "AIzaSyC61Ix7_tuAi6QJ1cTIWfJLUMVhNzmYEv0",
-    "projectNumber": "75943728763"
+    "apiKey": "Meteor.settings.androidApiKey",
+    "projectNumber": "androidProjectNumber"
   },
   "production": true,
   "alert": true,

@@ -1,23 +1,68 @@
 <template name="trending">
 {{#if currentUser}}
 
-  {{> headerNavBar}}
+    {{> headerNavBar}}
 
-  {{#contentFor "headerTitle"}}
-    <!--<h1 class="title"><a href="{{pathFor 'trending'}}">Trending</a></h1>-->
-    <h1 class="title">Trending</h1>
-  {{/contentFor}}
+    {{#contentFor "headerTitle"}}
+      <!--<h1 class="title"><a href="{{pathFor 'trending'}}">Trending</a></h1>-->
+      <h1 class="title">Trending</h1>
+    {{/contentFor}}
 
-  {{#ionView}}
-    {{#ionContent}}
-      {{#ionList}}
-        {{#each products}}
-          {{> _productItem product=this path="products.show"}}
-        {{/each}}
-      {{/ionList}}
-    {{/ionContent}}
-  {{/ionView}}
+    {{#ionView}}
+      {{#ionContent}}
+        {{#ionList}}
+          {{#each products}}
+            {{> _productItem product=this path="products.show"}}
+          {{/each}}
+        {{/ionList}}
+      {{/ionContent}}
+    {{/ionView}}
 
+  {{else}}
+
+    {{#ionView}}
+      {{#ionContent}}
+      {{> loginButtons}}
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+        <div class="row responsive-sm">
+          <div class="col col-25"></div>
+            <div class="col col-50">
+              <p class="text-center">
+                <h1 class="text-center">
+                  The Best Basketball Videos.
+                </h1>
+
+                <h2>
+                  From around the world.
+                </h2>
+
+                <h3>
+                  Every day.
+                </h3>
+
+                <br>
+              </p>
+            </div>
+          <div class="col"></div>
+        </div>
+        <div class="row responsive-sm">
+          <div class="col col-40"></div>
+            <div class="col col-20">
+              <p class="text-center">
+                <button class="button button-positive pull-right" data-ion-modal="signIn">
+                  Join Us
+                </button>
+              </p>
+            </div>
+          <div class="col"></div>
+        </div>
+      {{/ionContent}}
+    {{/ionView}}
 
 {{/if}}
 
