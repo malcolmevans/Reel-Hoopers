@@ -21,7 +21,7 @@
   <div class="product-detail">
 
     {{#if isDesktop}}
-      <div class="row">
+      <div class="row responsive-md">
         <div class="col col-20"></div>
           <div class="col col-60">
               {{#with product}}
@@ -66,11 +66,12 @@
 
 
 <template name="productsDetail">
+
+
   <div class="item">
-    <h2 class="taglineStyle">
-      {{tagline}}
-    </h2>
-  </div>  
+    <h2 class="taglineStyle text-center">Share <b>{{tagline}}</b> with others!</h2>
+    <p class="text-center addthis_sharing_toolbox" data-title="{{tagline}}"></p>
+  </div>
 
   <div class="item item-image no-padding">
     <p>
@@ -82,8 +83,10 @@
     <a class="tab-item">
       {{> _voteButton}} Upvote
     </a>
-    <!-- Go to www.addthis.com/dashboard to customize your tools -->
-    <div class="addthis_sharing_toolbox" data-title="{{tagline}}"></div>     
+
+    <!-- Go to www.addthis.com/dashboard to customize your tools 
+    <p class="addthis_sharing_toolbox" data-title="{{tagline}}"></p> -->
+
     <a class="tab-item" href="#">
       {{#with author}}
       <small>via <a href="{{pathFor 'users.show'}}" class="dark">{{profile.name}}</a></small>
