@@ -7,26 +7,26 @@
 
 
         {{#ionSideMenu}}
-          <div class="menu-header">
-            <h1 class="" style="color: #fff;">Menu</h1>
+          <div class="bar bar-header bar-positive">
+            <h1 class="title" style="color: #fff">Navigation</h1>
           </div>
           <div class="content has-header">
             <div class="list">
               {{#if isAdminUser}}
-              <div class="item item-icon-right" data-ion-menu-close>
+              <div class="item item-icon-right menuItemPadding" data-ion-menu-close>
                   <a class="sideMenuItems" data-ion-modal="newProduct">New Video</a>
               </div>
               {{/if}}
-              <div class="item item-icon-right" data-ion-menu-close>
+              <div class="item item-icon-right menuItemPadding" style="padding-bottom: 10px !important;" data-ion-menu-close>
                 <a class="sideMenuItems" href="{{ pathFor 'trending'}}">Trending</a>
               </div>
-              <div class="item item-icon-right" data-ion-menu-close>
+              <div class="item item-icon-right menuItemPadding" data-ion-menu-close>
                 <a class="sideMenuItems" href="{{ pathFor 'recent'}}">Recent</a>
               </div>
               <!--<div class="item item-icon-right" data-ion-menu-close>
                 <a class="sideMenuItems" href="{{ pathFor 'notifications'}}">Notifications</a>
               </div>-->
-              <div class="item item-icon-right" data-ion-menu-close>
+              <div class="item item-icon-right menuItemPadding" data-ion-menu-close>
                 <a class="sideMenuItems" href="{{ pathFor 'profile'}}">Profile</a>
               </div>
             </div>

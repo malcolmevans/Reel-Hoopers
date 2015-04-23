@@ -175,9 +175,7 @@
 }
 
 .menu-header {
-  background: #27272B url("/images/nodes.png") center center no-repeat;
-  background-size: cover;
-  text-align: center;
+
 }
 
 .profile-header {
@@ -245,4 +243,12 @@ a.comment-item-author {
 
 .sideMenuItems{
   text-decoration: none !important;
+  color: #000 !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+
+.menuItemPadding{
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
 }
