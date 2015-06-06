@@ -1,4 +1,4 @@
-  Session.set('tutorialEnabled', true);
+/*  Session.set('tutorialEnabled', true);
   var emitter = new EventEmitter();
 
   Template.home.helpers({
@@ -50,7 +50,7 @@
       template: Template.tutorial_step4,
       spot: "newProductBtn"
     }
-  ];*/
+  ];
 
   Template.home.helpers({
     options: {
@@ -73,4 +73,4 @@
         }, 1000);
       }
     }
-  });
+  });*/
