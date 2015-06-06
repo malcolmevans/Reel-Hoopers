@@ -9,13 +9,14 @@ var urlRe = /^https?:\/\/[^ \/,"]+\/[^ ,"]+$/i;
 // LOAD OEMBED
 Meteor.startup(function() {
     IframelyOembed.setTemplate('iframely');
-    IframelyOembed.setEndpoint('http://open.iframe.ly/api/oembed');
+    IframelyOembed.setEndpoint(Meteor.settings.public.iFramelyApiKey);
     IframelyOembed.setCacheOptions({
         cacheTTL: 1000 * 60 * 60, // Hour.
         cacheErrorTTL: 1000 * 60, // Minute.
         cacheEnabled: true
     });
 });
+
 
 /*Meteor.startup(function() {
 

@@ -2,6 +2,16 @@ Router.route('/', {
   name: 'trending'
 });
 
+/*Router.map(function(){
+  this.route('home', {path: '/tutorial'});
+  this.route('pics');
+  this.route('words');
+})*/
+
+Router.route('/reel-tutorial', {
+  name: 'manualTutorial'
+});
+
 Router.route('/recent', {
   name: 'recent',
 
@@ -14,6 +24,8 @@ Router.route('/recent', {
   }
   }
 });
+
+
 
 Router.route('/products/:_id', {
   name: 'products.show'

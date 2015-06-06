@@ -91,6 +91,9 @@
   padding: 5px !important;
 }
 
+.tutorial-background{
+}
+
 .card{
   margin: 5px 1px !important;
 }
@@ -217,6 +220,30 @@
     color: #fff;
   }
 }
+
+/* TUTORIAL */
+
+.words{
+  background: #fff;
+}
+.tutorialContents{
+  text-align: center !important;
+}
+
+.newProductBtn{
+  background: $positive !important;
+  color: #fff !important;
+}
+
+.tutorialText{
+  color: #fff;
+}
+
+.tutHeaderText{
+  font-size: 18px;
+  text-align: center !important;
+}
+
 
 .comment-item {
   border-top: 0;

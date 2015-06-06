@@ -6,12 +6,8 @@
     secret: Meteor.settings.meteorDeveloper.secret
   });
 });
+*/
 
-Accounts.onCreateUser(function(options, user) {
-  user.emails = user.services['meteor-developer'].emails;
-  user.profile = options.profile;
-  return user;
-});*/
 
 ServiceConfiguration.configurations.remove({
     service: "instagram"

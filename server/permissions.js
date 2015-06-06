@@ -24,6 +24,14 @@ Comments.allow({
   }
 });
 
+Meteor.users.allow({
+    'remove': function (userId, doc) {
+    if (Meteor.users.findOne(Meteor.settings.adminUser)){
+        return true;
+     }
+  }   
+});
+
 Push.debug = true;
 Push.allow({
     send: function(userId, notification) {

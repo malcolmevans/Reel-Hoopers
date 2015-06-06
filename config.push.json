@@ -3,8 +3,9 @@
     "apiKey": "Meteor.settings.androidApiKey",
     "projectNumber": "androidProjectNumber"
   },
-  "production": true,
+  "production": false,
+  "badge": true,
+  "sound": true,
   "alert": true,
-  "vibrate": true,
-  "sound": true
+  "vibrate": true
 }

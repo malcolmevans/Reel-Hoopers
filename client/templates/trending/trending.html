@@ -8,8 +8,17 @@
       <h1 class="title">Trending</h1>
     {{/contentFor}}
 
+     
+
     {{#ionView}}
       {{#ionContent}}
+
+      <a href="{{pathFor 'manualTutorial'}}" style="font: #fff !important;">
+        <button class="button button-positive" style="">
+        Check out the tutorial
+        </button>
+      </a>
+
         {{#ionList}}
           {{#each products}}
             {{> _productItem product=this path="products.show"}}
@@ -54,7 +63,7 @@
           <div class="col col-40"></div>
             <div class="col col-20">
               <p class="text-center">
-                <button class="button button-positive pull-right" data-ion-modal="signIn">
+                <button class="button button-positive" data-ion-modal="signIn">
                   Join Us
                 </button>
               </p>

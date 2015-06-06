@@ -1,0 +1,291 @@
+
+<template name="manualTutorial">
+
+
+{{#ionView}}
+  {{#ionContent}}   
+
+
+  <div class="tutorial-background">
+
+    {{#if isDesktop}}
+
+
+      {{> tutorialContents }}
+
+    {{else}}
+
+      {{> tutorialContents }}
+
+    {{/if}}
+
+  </div>
+  {{/ionContent}}
+{{/ionView}}
+</template>
+
+
+<template name="tutorialContents">
+<div class="tutorialContents">
+  <br>
+  <br>
+
+    <a href="{{pathFor 'trending'}}" style="font: #fff !important;">
+        <button class="button button-positive" style="">
+      {{>ionNavBackButton class="button-positive-light" text="Watch some videos!"}}
+    </button></a>
+             
+
+    {{#if isAndroid}}
+     
+         {{> tutIntroText}}
+          <br>
+          <button class="button button-light newProductBtn" style="">
+            {{> ionIcon icon='navicon'}}
+          </button>
+          <br>
+          <br>
+          <p class="tutHeaderText">App Menu</p>
+
+          <p>Here you can add a new video, check out what's trending, see recent posts and check out your profile.</p>
+          
+          <br>
+          <hr>
+         {{> createVideo}}
+
+         {{> upVoteVideo}}
+
+         {{> searchVideo}}
+
+         {{> shareVideo}}
+
+    {{else}}
+        {{> tutIntroText}}
+        <button class="button button-light newProductBtn" style="">
+          {{> ionIcon icon='ios-plus-empty'}}
+        </button>
+        <br>
+        <br>
+          {{> createVideo}}
+
+          {{> upVoteVideo}} 
+
+          {{> searchVideo}} 
+
+          {{> shareVideo}} 
+    {{/if}}
+</div>    
+</template>
+
+<template name="tutIntroText">
+  <h4 class="">With Reel Hoopers you can watch the best basketball videos, from around the world, all in one place. Just scroll and hit play. <br><br> Below is a quick overview of some icons/features you'll find:</h4>
+    <br> 
+</template>
+
+
+
+
+<template name="createVideo">
+  <p class="tutHeaderText">Create a new video.</p>
+    
+  <p>Paste a link to a video, and add a description. </p> 
+
+  <p>The more videos you post, the better Reel Hoopers is for everyone. </p><!--All the videos you add will be added to your profile.</p> -->
+</template>
+
+<template name="upVoteVideo">
+  <br>           
+  <hr>
+  <button class="button button-light newProductBtn">
+    {{> ionIcon icon="arrow-up-c" }}
+    {{numberOfVotes}}
+  </button>
+  <br>
+  <br>
+  <p class="tutHeaderText">Upvote videos.</p>
+
+  <p class="">The more votes a video has, the better it ranks.</p> <!--All the videos you upvote will be added to your profile.</p>-->
+</template>
+
+<template name="searchVideo">
+  <br>           
+  <hr>
+  <button class="button button-light newProductBtn" style="">
+      {{> ionIcon icon='ios-search'}}
+  </button> 
+  <br> 
+  <br>
+  <p class="tutHeaderText">Search videos</p>
+
+  <p>Just type what you're looking for.</p>
+</template>
+
+<template name="shareVideo">
+  <br>           
+  <hr>
+  <button class="button button-light newProductBtn">
+    <i class="icon ion-share"></i>
+  </button>
+  <br>
+  <br>
+  <p class="tutHeaderText">Share videos with others!</p>
+  <p class="">More shares, more people, more videos!</p>
+</template>
+
+
+<!-- POP UP JAVASCRIPT TUTORIAL
+
+<template name="hello">
+
+      {{! because BS3 col classes are position: relative we cannot put the tutorial inside them }}
+      {{> yield}}
+      {{> headerNavBar}}
+      {{> trending}}
+
+</template>
+
+<template name="home">
+    {{#if tutorialEnabled}}
+      {{> tutorial options}}
+    {{/if}}
+</template>
+
+<template name="words">
+  <div class="words">
+    <h1>Here are the various icons and their meanings:</h1>
+
+          {{#if isAndroid}}
+            <p class="tutHeaderText">Here's the App Menu</p>
+              <button class="button pull-left button-light newProductBtn" style="">
+                  {{> ionIcon icon='navicon'}}
+              </button>
+            <p>Click and you'll see where you can add a new video, check out what's trending and see recent posts.</p>            
+            <br>
+            <p>--</p>
+
+          {{else}}
+            <p class="tutHeaderText">Create a new video</p>
+              <button class="button pull-left button-light newProductBtn" style="">
+                  {{> ionIcon icon='ios-plus-empty'}}
+              </button>
+            <p>Just paste a link to a video, and add a description. The more videos you post, the better Reel Hoopers is for everyone. All the videos you add will be added to your profile.</p>            
+            <hr>
+            <p>--</p>
+            <p class="tutHeaderText">Find videos</p>
+              <button class="button pull-left button-light newProductBtn" style="">
+                  {{> ionIcon icon='ios-search'}}
+              </button>
+            <p>Just type what you're looking for.</p>
+            <br>
+            <p>--</p>
+            <!--<button class="button button-light newProductBtn" style="">
+                {{> ionIcon icon='ios-bolt'}}
+            </button>
+            <button class="button button-light newProductBtn" style="">
+                {{> ionIcon icon='ios-clock'}}
+            </button>
+            <button class="button button-positive" style="">
+                {{> ionIcon icon='ios-profile-outline'}}
+            </button>-->
+<!--          {{/if}}
+  </div>
+  {{#if tutorialEnabled}}
+    {{> tutorial options}}
+  {{/if}}
+</template>
+
+
+
+<template name="tutorial_step1">
+  <h2 class="tutorialText">Welcome to Reel Hoopers</h2>
+  <p class="tutorialText">I made this demo as a simple tutorial of how to use the meteor-tutorials package. Click next.</p>
+</template>
+
+<template name="tutorial_step2">
+  <div class="words">
+    <h1>Here are the various icons and their meanings:</h1>
+
+          {{#if isAndroid}}
+            <p class="tutHeaderText">Here's the App Menu</p>
+              <button class="button pull-left button-light newProductBtn" style="">
+                  {{> ionIcon icon='navicon'}}
+              </button>
+            <p>Click and you'll see where you can add a new video, check out what's trending and see recent posts.</p>            
+            <br>
+            <p>--</p>
+
+          {{else}}
+            <p class="tutHeaderText">Create a new video.</p>
+              <button class="button pull-left button-light newProductBtn" style="">
+                  {{> ionIcon icon='ios-plus-empty'}}
+              </button>
+            <p>Just paste a link to a video, and add a description. The more videos you post, the better Reel Hoopers is for everyone. All the videos you add will be added to your profile.</p>            
+            <hr>
+            <p>--</p>
+            <p class="tutHeaderText">Upvote videos.</p>
+              <button class="button button-light newProductBtn">
+                {{> ionIcon icon="arrow-up-c" }}
+                {{numberOfVotes}}
+              </button>
+            <p class="">The more votes a video has, the better it ranks. All the videos you upvote will be added to your profile.</p>  
+            <br>
+            <p>--</p>
+            <p class="tutHeaderText">Find videos</p>
+              <button class="button pull-left button-light newProductBtn" style="">
+                  {{> ionIcon icon='ios-search'}}
+              </button>
+            <p>Just type what you're looking for.</p>
+            <br>
+            <p>--</p>
+            <p class="tutHeaderText">Share videos with others!</p>
+              <button class="button button-light newProductBtn">
+                <i class="icon ion-share"></i>
+              </button>
+            <p class="">The more votes a video has, the better it ranks. All the videos you upvote will be added to your profile.</p>
+            <!--<button class="button button-light newProductBtn" style="">
+                {{> ionIcon icon='ios-bolt'}}
+            </button>
+            <button class="button button-light newProductBtn" style="">
+                {{> ionIcon icon='ios-clock'}}
+            </button>
+            <button class="button button-positive" style="">
+                {{> ionIcon icon='ios-profile-outline'}}
+            </button>-->
+<!--          {{/if}}
+  </div>
+  {{#if tutorialEnabled}}
+    {{> tutorial options}}
+  {{/if}}
+</template>
+
+<template name="tutorial_step3">
+        <h1>Here are the various icons and their meanings:</h1>
+
+    <p class="tutHeaderText">Upvote videos.</p>
+      <button class="button button-light newProductBtn">
+        {{> ionIcon icon="arrow-up-c" }}
+        {{numberOfVotes}}
+      </button>
+    <p class="">The more votes a video has, the better it ranks. All the videos you upvote will be added to your profile.</p>  
+    <br>
+    <p>--</p>
+    <p class="tutHeaderText">Share videos with others!</p>
+      <button class="button button-light newProductBtn">
+        <i class="icon ion-share"></i>
+      </button>
+    <p class="">The more votes a video has, the better it ranks. All the videos you upvote will be added to your profile.</p>
+    <br>
+  {{#if tutorialEnabled}}
+    {{> tutorial options}}
+  {{/if}}
+
+    <!--{{#unless stepCompleted}}
+    <b class="text-danger">Click the words to enable the next step.</b>
+    {{else}}
+    <b class="text-success">Great, you clicked the words!</b>
+    {{/unless}}-->
+<!--</template>
+
+<template name="tutorial_step4">
+    <p>Click 'Finish' to end all the tutorials.</p>
+</template>-->
