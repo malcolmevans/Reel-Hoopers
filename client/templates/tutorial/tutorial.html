@@ -1,25 +1,44 @@
 
+<template name="appOverviewButton">
+<br>
+<br>
+  <div class="tutorialContents">
+    <a href="{{pathFor 'manualTutorial'}}" style="font: #fff !important;">
+      <button class="button button-positive" style="">
+      App Overview
+      </button>
+    </a>
+  </div>
+<br>
+<br>    
+</template>
+
 <template name="manualTutorial">
 
-
 {{#ionView}}
-  {{#ionContent}}   
+  {{#ionContent}}
+
+    <a href="{{pathFor 'trending'}}" style="font: #fff !important;">
+      <button class="button button-positive" style="">
+      {{>ionNavBackButton text="Back to the videos!"}}
+      </button>
+    </a>   
+
+      <div class="tutorial-background">
+
+        {{#if isDesktop}}
 
 
-  <div class="tutorial-background">
+          {{> tutorialContents }}
 
-    {{#if isDesktop}}
+        {{else}}
 
+          {{> tutorialContents }}
 
-      {{> tutorialContents }}
+        {{/if}}
 
-    {{else}}
+      </div>
 
-      {{> tutorialContents }}
-
-    {{/if}}
-
-  </div>
   {{/ionContent}}
 {{/ionView}}
 </template>
@@ -29,12 +48,6 @@
 <div class="tutorialContents">
   <br>
   <br>
-
-    <a href="{{pathFor 'trending'}}" style="font: #fff !important;">
-        <button class="button button-positive" style="">
-      {{>ionNavBackButton class="button-positive-light" text="Watch some videos!"}}
-    </button></a>
-             
 
     {{#if isAndroid}}
      
@@ -74,6 +87,13 @@
 
           {{> shareVideo}} 
     {{/if}}
+    <br>
+    <br>
+    <a href="{{pathFor 'trending'}}" style="font: #fff !important;">
+      <button class="button button-positive" style="">
+      {{>ionNavBackButton text="Back to the videos!"}}
+      </button>
+    </a> 
 </div>    
 </template>
 
@@ -95,7 +115,6 @@
 
 <template name="upVoteVideo">
   <br>           
-  <hr>
   <button class="button button-light newProductBtn">
     {{> ionIcon icon="arrow-up-c" }}
     {{numberOfVotes}}
@@ -109,7 +128,6 @@
 
 <template name="searchVideo">
   <br>           
-  <hr>
   <button class="button button-light newProductBtn" style="">
       {{> ionIcon icon='ios-search'}}
   </button> 
@@ -122,7 +140,6 @@
 
 <template name="shareVideo">
   <br>           
-  <hr>
   <button class="button button-light newProductBtn">
     <i class="icon ion-share"></i>
   </button>
